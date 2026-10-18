@@ -12,14 +12,14 @@ backend:
 #
 # backend:
 #   name: github
-#   repo: mirdigitalagency/dhruvo-express
+#   repo: expressdhruvo/dhruvoexpress
 #   branch: main
-#   site_domain: mirdigitalagency.github.io
+#   site_domain: expressdhruvo.github.io
 #   base_url: https://api.netlify.com
 # ─────────────────────────────────────────────────────────────
 
 media_folder: "assets/uploads"
-public_folder: "/dhruvo-express/assets/uploads"
+public_folder: "/dhruvoexpress/assets/uploads"
 publish_mode: simple
 
 collections:

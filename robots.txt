@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mirdigitalagency.github.io/dhruvo-express/sitemap.xml
+Sitemap: https://expressdhruvo.github.io/dhruvoexpress/sitemap.xml

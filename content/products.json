@@ -3,6 +3,7 @@
     {
       "id": "gas-omera-12",
       "category": "gas",
+      "subcategory": "gas-12kg",
       "name": "Omera LPG",
       "detail": "১২ কেজি • রিফিল",
       "price": 1450,
@@ -14,12 +15,12 @@
       "imageWebp": "assets/products/omera-12kg-card.webp",
       "imageAlt": "Omera ১২ কেজি LPG সিলিন্ডারের ব্র্যান্ডের পণ্যছবি।",
       "imageLabel": "ব্র্যান্ডের ছবি",
-      "imageFit": "contain",
-      "subcategory": ""
+      "imageFit": "contain"
     },
     {
       "id": "gas-bashundhara-12",
       "category": "gas",
+      "subcategory": "gas-12kg",
       "name": "Bashundhara LPG",
       "detail": "১২ কেজি • রিফিল",
       "price": 1480,
@@ -31,12 +32,12 @@
       "imageWebp": "assets/products/bashundhara-12kg-card.webp",
       "imageAlt": "Bashundhara ১২ কেজি LPG সিলিন্ডারের ব্র্যান্ডের পণ্যছবি।",
       "imageLabel": "ব্র্যান্ডের ছবি",
-      "imageFit": "contain",
-      "subcategory": ""
+      "imageFit": "contain"
     },
     {
       "id": "gas-jamuna-12",
       "category": "gas",
+      "subcategory": "gas-12kg",
       "name": "Jamuna LPG",
       "detail": "১২ কেজি • রিফিল",
       "price": 1430,
@@ -48,12 +49,12 @@
       "imageWebp": "assets/products/jamuna-12kg-card.webp",
       "imageAlt": "Jamuna ১২ কেজি LPG সিলিন্ডারের প্রতিনিধি পণ্যছবি; ছবিটি একটি খুচরা বিক্রেতার তালিকা থেকে নেওয়া।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "contain",
-      "subcategory": ""
+      "imageFit": "contain"
     },
     {
       "id": "gas-lpg-55",
       "category": "gas",
+      "subcategory": "gas-small",
       "name": "LPG Cylinder",
       "detail": "৫.৫ কেজি • ছোট সাইজ",
       "price": 780,
@@ -65,12 +66,12 @@
       "imageWebp": "assets/products/omera-5.5kg-card.webp",
       "imageAlt": "Omera ৫.৫ কেজি LPG সিলিন্ডারের প্রতিনিধি ছবি; অর্ডারের ব্র্যান্ড মিলিয়ে নিন।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "contain",
-      "subcategory": ""
+      "imageFit": "contain"
     },
     {
       "id": "gas-lpg-22",
       "category": "gas",
+      "subcategory": "gas-large",
       "name": "LPG Cylinder",
       "detail": "২২ কেজি • বড় সাইজ",
       "price": 2650,
@@ -82,12 +83,12 @@
       "imageWebp": "assets/products/lpg-bangladesh-reference-card.webp",
       "imageAlt": "বাংলাদেশে ব্যবহৃত LPG সিলিন্ডারের বাস্তব ছবি; ২২ কেজির নির্দিষ্ট ব্র্যান্ড বা মডেল নিশ্চিত নয়, এটি প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "contain",
-      "subcategory": ""
+      "imageFit": "contain"
     },
     {
       "id": "rice-miniket",
       "category": "grocery",
+      "subcategory": "rice",
       "name": "মিনিকেট চাল",
       "detail": "৫ কেজি প্যাক",
       "price": 390,
@@ -99,12 +100,12 @@
       "imageWebp": "assets/products/rice-miniket.webp",
       "imageAlt": "কাঁচা সাদা চাল ও মাপার কাপের বাস্তব ছবি; মিনিকেট চালের প্রতিনিধি ছবি, প্যাকেজিং নয়।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "masoor-dal",
       "category": "grocery",
+      "subcategory": "dal",
       "name": "মসুর ডাল",
       "detail": "১ কেজি প্যাক",
       "price": 150,
@@ -116,12 +117,12 @@
       "imageWebp": "assets/products/masoor-dal-card.webp",
       "imageAlt": "বাটিতে কাঁচা লাল মসুর ডালের বাস্তব ছবি; প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "soybean-oil",
       "category": "grocery",
+      "subcategory": "oil",
       "name": "সয়াবিন তেল",
       "detail": "২ লিটার বোতল",
       "price": 360,
@@ -133,12 +134,12 @@
       "imageWebp": "assets/products/soybean-oil.webp",
       "imageAlt": "সয়াবিন দানা ও সয়াবিন তেলের বাস্তব ছবি; ২ লিটারের বোতল বা ব্র্যান্ডের ছবি নয়।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "sugar",
       "category": "grocery",
+      "subcategory": "daily",
       "name": "চিনি",
       "detail": "১ কেজি প্যাক",
       "price": 145,
@@ -150,12 +151,12 @@
       "imageWebp": "assets/products/sugar.webp",
       "imageAlt": "কাচের পাত্রে চিনির বাস্তব ছবি; ১ কেজি প্যাকের প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "atta",
       "category": "grocery",
+      "subcategory": "daily",
       "name": "আটা",
       "detail": "২ কেজি প্যাক",
       "price": 130,
@@ -167,12 +168,12 @@
       "imageWebp": "assets/products/atta-card.webp",
       "imageAlt": "বাটিতে গমের আটা/ময়দার মতো গুঁড়ার বাস্তব ছবি; নির্দিষ্ট প্যাকের প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "potato",
       "category": "grocery",
+      "subcategory": "daily",
       "name": "আলু",
       "detail": "২ কেজি",
       "price": 90,
@@ -184,12 +185,12 @@
       "imageWebp": "assets/products/potato.webp",
       "imageAlt": "কাঁচা আলুর বাস্তব ছবি; ২ কেজি আলুর প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     },
     {
       "id": "salt",
       "category": "grocery",
+      "subcategory": "daily",
       "name": "আয়োডিনযুক্ত লবণ",
       "detail": "১ কেজি প্যাক",
       "price": 40,
@@ -201,8 +202,7 @@
       "imageWebp": "assets/products/iodized-salt-card.webp",
       "imageAlt": "সাদা খাবার লবণভরা কাচের সল্ট শেকারের বাস্তব ছবি; প্যাকেজিং নয়, প্রতিনিধি ছবি।",
       "imageLabel": "প্রতিনিধি ছবি",
-      "imageFit": "cover",
-      "subcategory": ""
+      "imageFit": "cover"
     }
   ]
 }
