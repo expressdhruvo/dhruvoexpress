@@ -779,9 +779,9 @@ body { font-size: 17px; line-height: 1.72; color: #17364f; }
 .contact-submit[disabled] { cursor:wait; opacity:.72; transform:none; }
 .contact-form-fallback { display:flex; flex-wrap:wrap; gap:8px; }
 .contact-form-fallback[hidden] { display:none; }
-.contact-form-mailto,.contact-form-whatsapp { display:inline-flex; min-height:42px; flex:1 1 auto; align-items:center; justify-content:center; gap:7px; padding:9px 13px; border-radius:11px; font-size: 14px; font-weight:800; text-decoration:none; }
-.contact-form-mailto { border:1px solid #cfe0ec; background:#f2f8fc; color:#1c5b83; }
-.contact-form-mailto:hover { border-color:#8fb9d3; background:#e7f2f9; }
+.contact-form-call,.contact-form-whatsapp { display:inline-flex; min-height:42px; flex:1 1 auto; align-items:center; justify-content:center; gap:7px; padding:9px 13px; border-radius:11px; font-size: 14px; font-weight:800; text-decoration:none; }
+.contact-form-call { border:1px solid #cfe0ec; background:#f2f8fc; color:#1c5b83; }
+.contact-form-call:hover { border-color:#8fb9d3; background:#e7f2f9; }
 .contact-form-whatsapp { border:1px solid #c7e9d3; background:#effaf2; color:#14683c; }
 .contact-form-whatsapp:hover { border-color:#84c79d; background:#e3f6ea; }
 .contact-form-fallback a:focus-visible { outline:3px solid #8ab5d0; outline-offset:2px; }

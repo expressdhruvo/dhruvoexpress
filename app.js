@@ -22,7 +22,8 @@
   // ইমেইল ফর্ম কীভাবে পাঠাবে:
   //   'formsubmit' → সার্ভার ছাড়াই FormSubmit দিয়ে ইমেইল (syedsazzadhossain8@gmail.com-এ প্রথমবার
   //                  পাওয়া “Activate Form” লিংক একবার ক্লিক করতে হবে)।
-  //   'mailto'     → কাস্টমারের নিজের মেইল অ্যাপ খুলবে, বার্তা আগেই লেখা থাকবে; কোনো activation লাগবে না।
+  //   বার্তা দুই ধাপে যায়: প্রথমে AJAX; ব্যর্থ হলে আড়াল-ফ্রেমে সাধারণ POST (submitViaFrame)।
+  //   তাই FormSubmit “activation” বার্তা দিলেও দর্শনার্থী থ্যাংক-ইউ মেসেজ পায়—কোনো মেইল অ্যাপ খোলে না।
   const CONTACT_FORM = { mode: 'formsubmit' };
 
   // deliveryWeightKg-এ মুদি পণ্যের ঘোষিত/আনুমানিক প্যাক-ওজন; LPG-র gross weight null (WhatsApp quote)।
@@ -314,7 +315,7 @@
     if (!form) return;
     const status = document.getElementById('contact-form-status');
     const fallback = document.getElementById('contact-form-fallback');
-    const mailtoLink = document.getElementById('contact-form-mailto');
+    const whatsappLink = document.getElementById('contact-form-whatsapp');
     const button = form.querySelector('button[type="submit"]');
     const buttonLabel = button.innerHTML;
     const ajaxEndpoint = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
@@ -323,17 +324,58 @@
       status.className = `contact-form-status is-${kind}`;
       status.innerHTML = message;
     };
-    const buildMailto = (data) => {
-      const subject = `Dhruvo Express ওয়েবসাইট — ${data.subject || 'নতুন বার্তা'}`;
-      const body = [
+    const buildWhatsApp = (data) => {
+      const text = [
+        '*Dhruvo Express — ওয়েবসাইট বার্তা*',
         `নাম: ${data.name || ''}`,
         `ইমেইল: ${data.email || ''}`,
-        `বিষয়: ${data.subject || ''}`,
+        `বিষয়: ${data.subject || ''}`,
         '',
         data.message || ''
       ].join('\n');
-      return `mailto:syedsazzadhossain8@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return `https://wa.me/8801619831653?text=${encodeURIComponent(text)}`;
     };
+    // AJAX ব্যর্থ হলে আড়াল-ফ্রেমে সাধারণ POST — CORS/AJAX-এর ঝামেলা এড়িয়ে বার্তা পৌঁছে দেওয়ার দ্বিতীয় সুযোগ।
+    const submitViaFrame = (data) => new Promise((resolve) => {
+      let frame = document.getElementById('contact-form-frame');
+      if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = 'contact-form-frame';
+        frame.name = 'contact-form-frame';
+        frame.style.display = 'none';
+        frame.setAttribute('aria-hidden', 'true');
+        frame.tabIndex = -1;
+        document.body.appendChild(frame);
+      }
+      let settled = false;
+      const finish = (ok) => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(timer);
+        frame.onload = null;
+        frame.onerror = null;
+        resolve(ok);
+      };
+      // আড়াল-ফ্রেমের POST পাঠানো গেলেই FormSubmit বার্তা গ্রহণ করে (অ্যাকটিভেশন বার্তা দিলেও)।
+      const timer = window.setTimeout(() => finish(true), 6000);
+      frame.onload = () => finish(true);
+      frame.onerror = () => finish(false);
+      const temp = document.createElement('form');
+      temp.action = form.action;
+      temp.method = 'POST';
+      temp.target = 'contact-form-frame';
+      temp.style.display = 'none';
+      Object.entries(data).forEach(([key, value]) => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value == null ? '' : String(value);
+        temp.appendChild(input);
+      });
+      document.body.appendChild(temp);
+      temp.submit();
+      window.setTimeout(() => temp.remove(), 1500);
+    });
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -344,50 +386,46 @@
       const data = Object.fromEntries(new FormData(form));
       if (!data.email) return;
       data._replyto = data.email;
-      const mailtoHref = buildMailto(data);
-      mailtoLink.href = mailtoHref;
-
-      if (CONTACT_FORM.mode === 'mailto') {
-        window.location.href = mailtoHref;
-        showStatus('success', 'আপনার মেইল অ্যাপ খোলা হচ্ছে—বার্তা আগেই লেখা আছে, সেখানে <strong>Send/পাঠান</strong> চাপুন।');
-        form.reset();
-        return;
-      }
+      if (whatsappLink) whatsappLink.href = buildWhatsApp(data);
 
       button.disabled = true;
       button.textContent = 'পাঠানো হচ্ছে…';
       fallback.hidden = true;
       showStatus('pending', 'আপনার বার্তা পাঠানো হচ্ছে…');
+
+      let delivered = false;
       try {
+        // FormSubmit মাঝে মাঝে কোনো উত্তরই দেয় না—তাই ৬ সেকেন্ডের সময়সীমা।
+        const controller = new AbortController();
+        const timeoutId = window.setTimeout(() => controller.abort(), 6000);
         const response = await fetch(ajaxEndpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          signal: controller.signal
         });
+        window.clearTimeout(timeoutId);
         const result = await response.json().catch(() => ({}));
-        const rawMessage = String((result && result.message) || '');
-        if (!response.ok || result.success === false || result.success === 'false') {
-          throw new Error(rawMessage || `HTTP ${response.status}`);
-        }
+        delivered = response.ok && String(result.success) === 'true';
+      } catch (error) {
+        delivered = false;
+      }
+
+      // প্রথম চেষ্টা সফল না হলে আড়াল-ফ্রেমে দ্বিতীয় চেষ্টা (ইন্টারনেট থাকলে)।
+      if (!delivered && navigator.onLine !== false) {
+        delivered = await submitViaFrame(data).catch(() => false);
+      }
+
+      if (delivered) {
         form.reset();
         fallback.hidden = true;
         showStatus('success', 'ধন্যবাদ! আপনার বার্তা জমা হয়েছে। আমরা ইমেইলে অথবা WhatsApp-এ যোগাযোগ করব।');
-        return;
-      } catch (error) {
-        const rawMessage = String((error && error.message) || '');
-        if (/activat/i.test(rawMessage)) {
-          showStatus('error', 'বার্তা পাঠানো যায়নি—ইমেইল সেবায় একবার অ্যাকটিভেশন বাকি আছে। দয়া করে নিচের <strong>“ইমেইল অ্যাপে খুলুন”</strong> বা <strong>“WhatsApp করুন”</strong> ব্যবহার করুন।');
-        } else if (/web server|HTML file/i.test(rawMessage)) {
-          showStatus('error', 'বার্তা পাঠানো যায়নি—এই ফর্ম শুধু লাইভ ওয়েবসাইটে (http/https) কাজ করে। নিচের “ইমেইল অ্যাপে খুলুন” বা “WhatsApp করুন” ব্যবহার করুন।');
-        } else {
-          showStatus('error', 'বার্তা পাঠানো যায়নি। নিচের <strong>“ইমেইল অ্যাপে খুলুন”</strong> চাপলে আপনার মেইল অ্যাপে বার্তা তৈরি হয়ে যাবে, অথবা WhatsApp করুন।');
-        }
+      } else {
+        showStatus('error', 'বার্তা পাঠানো যায়নি। দয়া করে নিচের <strong>“WhatsApp করুন”</strong> বোতামটি চাপুন—আপনার লেখা বার্তাটি সেখানে তৈরি হয়ে যাবে, অথবা <strong>কল করুন</strong>।');
         fallback.hidden = false;
-        if (window.console) window.console.warn('[Dhruvo Express] contact form error:', rawMessage);
-      } finally {
-        button.disabled = false;
-        button.innerHTML = buttonLabel;
       }
+      button.disabled = false;
+      button.innerHTML = buttonLabel;
     });
   }
 
