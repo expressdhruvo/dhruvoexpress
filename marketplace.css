@@ -1,14 +1,14 @@
 /* Dhruvo Express marketplace refresh — local font + brand colours from the supplied logo */
 @font-face {
   font-family: "Hind Siliguri";
-  src: url("assets/hind-siliguri-regular.woff") format("woff");
+  src: url("assets/hind-siliguri-regular.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Hind Siliguri";
-  src: url("assets/hind-siliguri-bold.woff") format("woff");
+  src: url("assets/hind-siliguri-bold.woff2") format("woff2");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
