@@ -1,0 +1,23 @@
+{
+  "categories": [
+    {
+      "id": "gas",
+      "label": "Gas Cylinder",
+      "subcategories": [
+        { "id": "gas-12kg", "label": "১২ কেজি" },
+        { "id": "gas-small", "label": "৫.৫ কেজি" },
+        { "id": "gas-large", "label": "২২ কেজি" }
+      ]
+    },
+    {
+      "id": "grocery",
+      "label": "Grocery Market",
+      "subcategories": [
+        { "id": "rice", "label": "চাল" },
+        { "id": "dal", "label": "ডাল" },
+        { "id": "oil", "label": "তেল" },
+        { "id": "daily", "label": "নিত্যপ্রয়োজনীয়" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "title": "আজকের ফ্ল্যাশ সেল",
+  "note": "আজকের বিশেষ দাম",
+  "productId": "",
+  "salePrice": 0,
+  "endTime": "23:59:59",
+  "ctaText": "অফারটি দেখুন"
+}

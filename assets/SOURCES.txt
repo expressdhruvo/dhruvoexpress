@@ -1,0 +1,16 @@
+Asset notes for Dhruvo Express demo
+
+1) dhruvo-express-logo.png and dhruvo-express-mark.png
+   Cropped from the Dhruvo Express logo image supplied by the site owner in this conversation.
+
+2) bkash-logo.svg
+   Logo file page: https://bn.wikipedia.org/wiki/%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0:%E0%A6%AC%E0%A6%BF%E0%A6%95%E0%A6%BE%E0%A6%B6%E0%A7%87%E0%A6%B0_%E0%A6%B2%E0%A7%8B%E0%A6%97%E0%A7%8B.svg
+   The file page lists bkash.com as the logo source. It is a trademark/copyrighted brand asset; verify permission and current brand guidelines for commercial use.
+
+3) nagad-logo.svg
+   Logo file page: https://bn.wikipedia.org/wiki/%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0:%E0%A6%A8%E0%A6%97%E0%A6%A6%E0%A7%87%E0%A6%B0_%E0%A6%B2%E0%A7%8B%E0%A6%97%E0%A7%8B.svg
+   The file page lists nagad.com.bd as the logo source. It is a trademark/copyrighted brand asset; verify permission and current brand guidelines for commercial use.
+
+4) Hind Siliguri font files
+   Google Fonts project: https://fonts.google.com/specimen/Hind+Siliguri
+   SIL Open Font License copy: HIND-SILIGURI-OFL.txt

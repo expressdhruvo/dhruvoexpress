@@ -1,0 +1,34 @@
+{
+  "store": {
+    "name": "Dhruvo Express",
+    "tagline": "ধ্রুব এক্সপ্রেস",
+    "whatsappNumber": "8801619831653",
+    "paymentDisplayNumber": "+8801619831653",
+    "email": "syedsazzadhossain8@gmail.com",
+    "area": "কলসি দিঘির পাড়, চট্টগ্রাম"
+  },
+  "hero": {
+    "kicker": "Fast Local Delivery | Chattogram",
+    "title": "আপনার নিত্যপ্রয়োজন,",
+    "titleEm": "সহজেই পৌঁছাক ঘরে।",
+    "description": "গ্যাস সিলিন্ডার থেকে মাসিক বাজার—কলসি দিঘির পাড় ও আশপাশে সহজে অর্ডার করুন; Dhruvo Express পৌঁছে দেবে আপনার ঠিকানায়।"
+  },
+  "ticker": [
+    { "label": "লোকাল ডেলিভারি", "text": "কলসি দিঘির পাড় ও আশপাশে হোম ডেলিভারি" },
+    { "label": "পেমেন্ট", "text": "Cash on Delivery · bKash · Nagad (manual)" },
+    { "label": "ডেলিভারি চার্জ", "text": "ওজন ও দূরত্ব অনুযায়ী অর্ডারের আগে নিশ্চিত করুন" },
+    { "label": "গ্রাহকসেবা", "text": "পণ্য, স্টক ও মূল্য জানতে WhatsApp-এ যোগাযোগ করুন" }
+  ],
+  "delivery": {
+    "tiers": [
+      { "maxKg": 10, "fee": 30 },
+      { "maxKg": 30, "fee": 60 },
+      { "maxKg": 80, "fee": 100 }
+    ],
+    "maximumOnlineWeightKg": 80
+  },
+  "pricing": {
+    "verified": true
+  },
+  "footerNote": "পণ্য, মূল্য ও ডেলিভারি চার্জ অর্ডারের আগে নিশ্চিত করুন"
+}
